@@ -9,6 +9,7 @@ services:
       MYSQL_DATABASE: magento
     volumes:
       - db-data:/var/lib/mysql
+      - ./logs/mysql:/var/log/mysql
 
   web:
     build: ./dockerfiles/magento2-web
