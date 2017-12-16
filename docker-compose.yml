@@ -1,0 +1,26 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Passw0rd!
+    volumes:
+      - db-data:/var/lib/mysql
+
+  web:
+    build: ./dockerfiles/magento2-web
+    image: magento2-web
+    ports:
+      - "80:80"
+    links:
+      - db
+    volumes:
+      - ./html:/var/www/html
+      - ./logs/apache2:/var/log/apache2
+    depends_on:
+      - db
+
+volumes:
+  db-data:
