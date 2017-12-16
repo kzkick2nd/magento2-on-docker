@@ -7,6 +7,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Passw0rd!
       MYSQL_DATABASE: magento
+    volumes:
+      - db-data:/var/lib/mysql
 
   web:
     build: ./dockerfiles/magento2-web
@@ -20,3 +22,5 @@ services:
       - ./logs/apache2:/var/log/apache2
     depends_on:
       - db
+volumes:
+  db-data:
