@@ -19,7 +19,7 @@ services:
     links:
       - db
     volumes:
-      - ./html:/var/www/html
+      - ./html:/var/www/html:cached
       - ./logs/apache2:/var/log/apache2
     depends_on:
       - db
