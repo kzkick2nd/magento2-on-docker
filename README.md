@@ -1,21 +1,18 @@
-# 意識低めのMagento2 on Docker
-[Magento Advent Calendar 2017](https://adventar.org/calendars/2349) 16日目の成果物。
+## Magento2 on local-docker sample
+Magento2系をDockerローカルで動かすサンプルです。CE2.3.0で動作確認済みです。
 
-できるだけ手軽にMagento2の開発環境を構築する実験。
+[Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目新規作成。
+[Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目バージョンアップ。
 
-- Magento会員登録が必要なのでMagento本体を含めるのはボツ。
-- ホストComposerのキャッシュ利用を狙ったが、ホスト側依存関係の処理が手間なためボツ。
-- 今のところzipで取ってくるのがベター。
+### 動作確認環境
+- Docker version 18.09.0
+- Magento CE 2.3.0
 
-## 動作環境
-- Docker For Mac (17.12.0)
-- Magento 2.2.3
-
-## 使い方
-- 公式から2.2.3のzipを取得 [https://magento.com/tech-resources/download](https://magento.com/tech-resources/download)
-- 取得したzipをプロジェクトディレクトリに展開。（このREADME.mdと同階層）
-- Docker-composeを起動 `docker-compose up -d`
-- `http://localhost/`からセットアップウィザード。以下のDB接続情報を利用。
+### 使い方
+- 公式サイトからMagento2のアプリ本体を取得※ [DOWNLOAD RELEASES](https://magento.com/tech-resources/download)
+- 取得した圧縮ファイルの中身を`./app/`以下に展開。
+- Docker起動 `docker-compose up -d`
+- `http://localhost/`からセットアップウィザード。※DB接続情報は以下参照。
 
 | 項目 | 内容 |
 |:--|:--|
@@ -24,5 +21,9 @@
 | Database Server Password | なし |
 | Database Name | `magento` |
 
-## 備考
-- apacheとmysqlのログは`./docker-logs`にマウント済み
+### 備考
+アプリ本体を取得するのに会員登録が必要なので手動で行う。
+
+## TODO
+- イメージもっと軽くしたい
+- コンテナホスティング、例えばARUKASで動かしてみる

@@ -9,19 +9,20 @@ services:
       MYSQL_DATABASE: magento
     volumes:
       - db-data:/var/lib/mysql
-      - ./docker-logs/mysql:/var/log/mysql
+      - ./logs/mysql:/var/log/mysql
 
-  web:
+  app:
     build: ./
-    image: magento2-web
+    image: magento2-app
     ports:
       - "80:80"
+    volumes:
+      - ./app:/var/www/html:cached
+      - ./logs/apache2:/var/log/apache2
     links:
       - db
-    volumes:
-      - ./:/var/www/html:cached
-      - ./docker-logs/apache2:/var/log/apache2
     depends_on:
       - db
+
 volumes:
   db-data:
