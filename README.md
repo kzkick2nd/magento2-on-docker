@@ -1,8 +1,9 @@
 ## Magento2 on local-docker sample
 Magento2系をDockerローカルで動かすサンプルです。CE2.3.0で動作確認済みです。
 
-[Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目新規作成。
-[Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目バージョンアップ。
+### 更新履歴
+- [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目バージョンアップ。
+- [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目新規作成。
 
 ### 動作確認環境
 - Docker version 18.09.0
