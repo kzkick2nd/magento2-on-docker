@@ -1,3 +1,7 @@
+## TODO
+- [ ] bin/setup
+- [ ] transport magento2 logs to stdout of docker log
+
 ## Magento2 on Docker
 Magento2 を Docker で動かすサンプル。
 
