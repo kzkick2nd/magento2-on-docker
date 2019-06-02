@@ -1,6 +1,8 @@
 ## TODO
 - [ ] bin/setup
 - [ ] transport magento2 logs to stdout of docker log
+- [ ] app => magento2 フォルダ名変更
+- [ ] composer install 型に変更
 
 ## NOTE
 - 各種設定項目の意味と位置
