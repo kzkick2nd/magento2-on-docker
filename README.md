@@ -28,6 +28,7 @@ Magento2 を Docker で動かすサンプル。
 ### 初期化
 #### 1. Magento2 取得
 Magento2 "Full Release with Sample Data"(tar bz2) をダウンロードし、リポジトリルートに設置。
+
 [Open Source Ecommerce Software & Solutions | Magento](https://magento.com/tech-resources/download)
 
 #### 2. 環境構築手順
