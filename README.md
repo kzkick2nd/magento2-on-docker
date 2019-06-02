@@ -1,30 +1,60 @@
-## Magento2 on local-docker sample
-Magento2系をDockerローカルで動かすサンプルです。CE2.3.0で動作確認済みです。
+## Magento2 on Docker
+Magento2 を Docker で動かすサンプル。
 
 ### 更新履歴
-- [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目バージョンアップ。
-- [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目新規作成。
+- [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目 バージョンアップ。
+- [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目 新規作成。
 
-### 動作確認環境
-- Docker version 18.09.0
-- Magento CE 2.3.0
+### 動作環境
+- Docker 18.09.2
+- Magento CE 2.3.1
 
-### 使い方
-- 公式サイトからMagento2のアプリ本体を取得※ [DOWNLOAD RELEASES](https://magento.com/tech-resources/download)
-- 取得した圧縮ファイルの中身を`./app/`以下に展開。
-- Docker起動 `docker-compose up -d`
-- `http://localhost/`からセットアップウィザード。※DB接続情報は以下参照。
+### 初期化
+#### 1. Magento2 取得
+Magento2 "Full Release with Sample Data"(tar bz2) をダウンロードし、リポジトリルートに設置。
+[Open Source Ecommerce Software & Solutions | Magento](https://magento.com/tech-resources/download)
 
-| 項目 | 内容 |
+#### 2. 環境構築手順
+
+        $ tar xf Magento-CE-*.tar.bz2 -C app/
+        $ chmod +x app/bin/magento
+
+        # Docker 起動
+        $ docker-compose up -d
+
+        # セットアップ開始
+        $ docker-compose exec app php -d memory_limit=-1 bin/magento setup:install \
+            --base-url=http://localhost:8080 \
+            --db-host=db \
+            --db-name=magento \
+            --db-user=root \
+            --db-password= \
+            --backend-frontname=admin \
+            --admin-firstname=admin \
+            --admin-lastname=admin \
+            --admin-email=admin@example.com \
+            --admin-user=admin \
+            --admin-password=Passw0rd! \
+            --language=ja_JP \
+            --currency=JPY \
+            --timezone=Asia/Tokyo \
+            --use-rewrites=1
+
+        $ open http://localhost:8080
+
+##### DB 設定内容
+
+|  |  |
 |:--|:--|
-| Database Server Host | `db` |
-| Database Server Username | `root` |
-| Database Server Password | なし |
+| Database Host | `db` |
 | Database Name | `magento` |
+| Database Username | `root` |
+| Database Password | なし |
 
-### 備考
-- アプリ本体を取得する方法のうちもっとも速いのは圧縮ファイルでのダウンロード
+#### 各種コマンド
 
-## TODO
-- イメージもっと軽くしたい
-- コンテナホスティング、例えばARUKASで動かしてみる
+        # bin/magento コマンド
+        $ docker-compose exec app bin/magento
+
+        # コンテナ log 出力
+        $ docker-compose logs -f
