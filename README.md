@@ -2,6 +2,18 @@
 - [ ] bin/setup
 - [ ] transport magento2 logs to stdout of docker log
 
+## NOTE
+- 各種設定項目の意味と位置
+- 日本語化手順
+- フロントエンド改造方法
+- 決済モジュール追加方法
+- Mageno2 運用フロー
+        - 在庫
+        - 注文
+        - 決済
+        - 運送会社連携
+- API型カートシステム
+
 ## Magento2 on Docker
 Magento2 を Docker で動かすサンプル。
 
