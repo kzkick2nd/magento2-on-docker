@@ -1,8 +1,13 @@
 ## TODO
-- [ ] bin/setup
+- [x] bin/setup
+- [x] app => magento2 フォルダ名変更
 - [ ] transport magento2 logs to stdout of docker log
-- [ ] app => magento2 フォルダ名変更
 - [ ] composer install 型に変更
+- [ ] Magento2 日本語化方法
+- [ ] Magento2 アップデート方法
+- [ ] Magento2 フロント更新手順
+- [ ] Magento2 決済モジュール追加手順
+- [ ] デプロイ時のセキュア設定忘れずに
 
 ## NOTE
 - 各種設定項目の意味と位置
