@@ -1,0 +1,9 @@
+#!/bin/bash
+cd `dirname $0`
+cd ".."
+
+# TODO Extract tar.bz2
+# TODO Sleep
+# TODO Compoesr install
+# TODO Setup magento
+# TODO Restart Docker
