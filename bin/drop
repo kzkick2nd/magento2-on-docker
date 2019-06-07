@@ -1,0 +1,8 @@
+#!/bin/bash
+cd `dirname $0`
+cd ".."
+
+docker-compose down --rmi local -v
+rm -rf ./magento/*
+rm ./magento/.* 2>/dev/null
+touch ./magento/.gitkeep
