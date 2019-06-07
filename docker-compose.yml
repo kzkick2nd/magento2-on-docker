@@ -14,9 +14,9 @@ services:
     build: ./
     image: magento2-app
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
-      - ./app:/var/www/html:cached
+      - ./magento:/var/www/html:cached
     links:
       - db
     depends_on:
