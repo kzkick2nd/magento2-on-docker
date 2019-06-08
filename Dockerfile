@@ -1,5 +1,7 @@
 FROM php:7.2.19-apache-stretch
 
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
 RUN { \
     echo '<VirtualHost *:80>'; \
     echo '  DocumentRoot /var/www/html'; \
