@@ -43,7 +43,7 @@ repo.magento.com へのログイン情報を求められたら(1)で取得した
         $ bin/localization_ja_JP
 
 #### (OPT) 管理画面表示言語の変更
-管理画面でユーザー設定から「Interface Locale」を変更します。
+管理画面 Admin Setting の Interface Locale を日本語に変更します。
 
 #### 備考: DB 設定情報
 
