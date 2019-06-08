@@ -2,7 +2,39 @@
 cd `dirname $0`
 cd ".."
 
-# TODO composer require ja package
-# TODO enable packages
-# TODO setup
-# TODO clear cache
+# DONE composer require ja package
+if type composer > /dev/null 2>&1; then
+    cd magento/
+    composer require community-engineering/japan-common
+    cd ..
+else
+    docker-compose exec app composer require community-engineering/japan-common
+fi
+
+# DONE enable packages
+docker-compose exec app bin/magento module:enable CommunityEngineering_ConfigurablePdfFont \
+  CommunityEngineering_CurrencyPrecision \
+  CommunityEngineering_FontIpa \
+  CommunityEngineering_FontSourceHanSansJapanese \
+  CommunityEngineering_JapaneseRegion \
+  CommunityEngineering_JapaneseStoreAddress \
+  CommunityEngineering_JapaneseUrlRewrite \
+  CommunityEngineering_JapaneseYenFormatting \
+  CommunityEngineering_Kuromoji \
+  CommunityEngineering_JapaneseDefaultConfig \
+  CommunityEngineering_JapaneseName \
+  CommunityEngineering_JapaneseAddress \
+  CommunityEngineering_JapaneseDefaultCmsPages \
+  CommunityEngineering_JapanesePostalCode --clear-static-content
+
+# DONE setup
+docker-compose exec app bin/magento setup:upgrade
+docker-compose exec app bin/magento setup:di:compile
+
+# DONE clear cache
+docker-compose exec app bin/magento cache:clean
+
+# DONE show status
+docker-compose exec app bin/magento module:status
+
+docker-compose restart
