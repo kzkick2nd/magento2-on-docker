@@ -1,30 +1,15 @@
 ## TODO
-- [x] bin/setup
+- [x] bin/setup bin/drop 追加
 - [x] app => magento2 フォルダ名変更
-- [ ] transport magento2 logs to stdout of docker log
 - [x] composer install 型に変更
-- [ ] Magento2 日本語化方法
-- [ ] Magento2 アップデート方法
-- [ ] Magento2 フロント更新手順
-- [ ] Magento2 決済モジュール追加手順
-- [ ] デプロイ時のセキュア設定忘れずに
-
-## NOTE
-- 各種設定項目の意味と位置
-- 日本語化手順
-- フロントエンド改造方法
-- 決済モジュール追加方法
-- Mageno2 運用フロー
-        - 在庫
-        - 注文
-        - 決済
-        - 運送会社連携
-- API型カートシステム
+- [ ] Transport magento2 logs to stdout
+- [ ] Magento2 日本語化スクリプト追加
 
 ## Magento2 on Docker
-Magento2 を Docker で動かすサンプル。
+Magento2 Docker 開発環境。
 
 ### 更新履歴
+- 2019-06-08 構成を変更
 - [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目 バージョンアップ。
 - [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目 新規作成。
 
@@ -47,10 +32,11 @@ composer をローカルにインストール + 追加設定を行うことで�
 #### 1. Magento2 auth key 取得
 Magento Marketplace にログインし、auth キーペアを取得する。
 
-=> [Get your authentication keys | Magento 2 Developer Documentation](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
+[Get your authentication keys | Magento 2 Developer Documentation](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
 
-#### 2. 環境構築手順
+#### 2. Docker 初期化 & Magento インストール
 bin/setup スクリプトを実行する。
+
 repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。(Username = Public Key, Password = Private Key)
 
         $ chmod +x bin/*
