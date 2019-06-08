@@ -32,13 +32,26 @@ Magento2 を Docker で動かすサンプル。
 - Docker 18.09.2
 - Magento CE 2.3.1
 
-### 初期化
-#### 1. Magento2 取得
-Magento2 "Full Release with Sample Data"(tar bz2) をダウンロードし、リポジトリルートに設置。
+### 推奨設定
+composer をローカルにインストール + 追加設定を行うことで初期化を高速化します。
 
-[Open Source Ecommerce Software & Solutions | Magento](https://magento.com/tech-resources/download)
+        $ brew install composer
+        $ composer config -g repos.packagist composer https://packagist.jp
+        $ composer global require hirak/prestissimo
+
+#### Packagist.JP and prestissimo
+- [Packagist.JP](https://packagist.jp/)
+- [hirak/prestissimo: composer parallel install plugin](https://github.com/hirak/prestissimo)
+
+### 初期化（2ステップ）
+#### 1. Magento2 auth key 取得
+Magento Marketplace にログインし、auth キーペアを取得する。
+
+=> [Get your authentication keys | Magento 2 Developer Documentation](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
 
 #### 2. 環境構築手順
+bin/setup スクリプトを実行する。
+repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。(Username = Public Key, Password = Private Key)
 
         $ chmod +x bin/*
         $ bin/setup
