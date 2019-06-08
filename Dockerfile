@@ -1,4 +1,16 @@
-FROM php:7.2-apache
+FROM php:7.2.19-apache-stretch
+
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+RUN { \
+    echo '<VirtualHost *:80>'; \
+    echo '  DocumentRoot /var/www/html'; \
+    echo '  <Directory /var/www/html>'; \
+    echo '    AllowOverride All'; \
+    echo '  </Directory>'; \
+    echo '</VirtualHost>'; \
+  } | tee "$APACHE_CONFDIR/conf-available/vhost.conf" \
+  && a2enconf vhost && a2enmod rewrite
 
 RUN apt-get update \
   && apt-get install -y \
@@ -22,3 +34,6 @@ RUN apt-get update \
     bcmath \
   && a2enmod rewrite \
   && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /var/www/html/
+COPY ./magento ./

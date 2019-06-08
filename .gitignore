@@ -2,3 +2,6 @@
 
 app/*
 !app/.gitkeep
+
+# ignore compressed magento
+*.tar.bz2

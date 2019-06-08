@@ -8,8 +8,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: magento
     volumes:
-      - db-data:/var/lib/mysql
-      - ./logs/mysql:/var/log/mysql
+      - db:/var/lib/mysql
 
   app:
     build: ./
@@ -17,12 +16,11 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./app:/var/www/html:cached
-      - ./logs/apache2:/var/log/apache2
+      - ./magento:/var/www/html:cached
     links:
       - db
     depends_on:
       - db
 
 volumes:
-  db-data:
+  db:
