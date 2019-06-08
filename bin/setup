@@ -34,4 +34,4 @@ docker-compose exec app php -d memory_limit=-1 bin/magento setup:install \
         --timezone=Asia/Tokyo \
         --use-rewrites=1
 
-open http://localhost
+open http://127.0.0.1
