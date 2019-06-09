@@ -17,7 +17,7 @@ composer をローカルにインストール + 追加設定を行うことで�
         $ composer config -g repos.packagist composer https://packagist.jp
         $ composer global require hirak/prestissimo
 
-##### 公式情報 Packagist.JP, prestissimo
+##### Packagist.JP, prestissimo 公式情報
 - [Packagist.JP](https://packagist.jp/)
 - [hirak/prestissimo: composer parallel install plugin](https://github.com/hirak/prestissimo)
 
@@ -32,8 +32,7 @@ bin/setup スクリプトを実行します。
 
 repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。
 
-##### 項目名と対応キー
-Username => Public Key, Password => Private Key
+##### 項目名と対応キー: Username => Public Key, Password => Private Key
 
         $ chmod +x bin/*
         $ bin/setup
