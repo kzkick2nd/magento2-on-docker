@@ -13,9 +13,11 @@ Magento2 Docker 開発環境。
 ### 推奨設定
 composer をローカルにインストール + 追加設定を行うことで初期化を高速化できます。
 
-        $ brew install composer
-        $ composer config -g repos.packagist composer https://packagist.jp
-        $ composer global require hirak/prestissimo
+```
+$ brew install composer
+$ composer config -g repos.packagist composer https://packagist.jp
+$ composer global require hirak/prestissimo
+```
 
 ##### Packagist.JP, prestissimo 公式情報
 - [Packagist.JP](https://packagist.jp/)
@@ -34,20 +36,24 @@ repo.magento.com へのログイン情報を求められたら(1)で取得した
 
 ##### 項目名と対応キー: Username => Public Key, Password => Private Key
 
-        $ chmod +x bin/*
-        $ bin/setup
+```
+$ chmod +x bin/*
+$ bin/setup
+```
 
 #### (OPT) 日本語化パッケージの導入
 
 1. Marketplace で Localization 拡張を取得します。=> [Japanese Localization](https://marketplace.magento.com/community-engineering-japan-common.html)
 2. 拡張導入スクリプトを実行します。
 
-        $ bin/localization_ja_JP
+```
+$ bin/localization_ja_JP
+```
 
 #### (OPT) 管理画面表示言語の変更
 管理画面 Admin Setting の Interface Locale を日本語に変更します。
 
-#### 備考: DB 設定情報
+### 備考: DB 設定情報
 
 | item | value |
 |:--|:--|
@@ -56,13 +62,15 @@ repo.magento.com へのログイン情報を求められたら(1)で取得した
 | Database Username | `root` |
 | Database Password | なし |
 
-#### 備考: 各種コマンド
+### 備考: 各種コマンド
 
-        # bin/magento コマンド
-        $ docker-compose exec app bin/magento
+```
+# bin/magento コマンド
+$ docker-compose exec app bin/magento
 
-        # コンテナ log 出力
-        $ docker-compose logs -f
+# コンテナ log 出力
+$ docker-compose logs -f
+```
 
 ## TODO
 - [x] ディレクトリ構成変更
