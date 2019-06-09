@@ -32,9 +32,8 @@ bin/setup スクリプトを実行します。
 
 repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。
 
-##### ※ 項目名と対応キー
-- Username = Public Key
-- Password = Private Key
+##### 項目名と対応キー
+Username => Public Key, Password => Private Key
 
         $ chmod +x bin/*
         $ bin/setup
