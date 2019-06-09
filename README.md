@@ -17,7 +17,7 @@ composer をローカルにインストール + 追加設定を行うことで�
         $ composer config -g repos.packagist composer https://packagist.jp
         $ composer global require hirak/prestissimo
 
-#### 公式情報 Packagist.JP, prestissimo
+##### 公式情報 Packagist.JP, prestissimo
 - [Packagist.JP](https://packagist.jp/)
 - [hirak/prestissimo: composer parallel install plugin](https://github.com/hirak/prestissimo)
 
@@ -30,14 +30,18 @@ Magento Marketplace にログインし、auth キーペアを取得します。
 #### 2. Docker 初期化 & Magento インストール
 bin/setup スクリプトを実行します。
 
-repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。(Username = Public Key, Password = Private Key)
+repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。
+
+##### ※ 項目名と対応キー
+- Username = Public Key
+- Password = Private Key
 
         $ chmod +x bin/*
         $ bin/setup
 
 #### (OPT) 日本語化パッケージの導入
 
-1. Marketplace で Localization 拡張を取得します。（[Japanese Localization](https://marketplace.magento.com/community-engineering-japan-common.html)
+1. Marketplace で Localization 拡張を取得します。=> [Japanese Localization](https://marketplace.magento.com/community-engineering-japan-common.html)
 2. 拡張導入スクリプトを実行します。
 
         $ bin/localization_ja_JP
