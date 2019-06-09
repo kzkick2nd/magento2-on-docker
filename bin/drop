@@ -4,5 +4,7 @@ cd ".."
 
 docker-compose down --rmi local -v
 
-ls -a | grep -vE '.git|^\.+|bin|Dockerfile|README.md|docker-compose.yml' | xargs rm -r
-rm bin/magento
+ls -a | grep -vE '.git$|^\.+$|bin|Dockerfile|README.md|docker-compose.yml' | xargs rm -r
+rm bin/magento bin/.htaccess
+
+echo '.DS_Store' > .gitignore
