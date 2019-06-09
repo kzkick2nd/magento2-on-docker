@@ -4,16 +4,22 @@ cd ".."
 
 docker-compose up -d
 
-rm ./magento/.gitkeep
+mkdir .tmp
 
 if type composer > /dev/null 2>&1; then
         # Use composer cache if composer command is installed on local.
-        composer create-project --repository=https://repo.magento.com/ magento/project-community-edition ./magento/
+        composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .tmp/
+        mv .tmp/bin/* ./bin/
+        mv .tmp/* ./ && mv .tmp/.* ./
+        rm -r .tmp
 else
-        docker-compose exec app composer create-project --repository=https://repo.magento.com/ magento/project-community-edition ./
+        docker-compose exec app composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .tmp/
+        docker-compose exec app mv .tmp/bin/* ./bin/
+        docker-compose exec app mv .tmp/* ./ && mv .tmp/.* ./
+        docker-compose exec app rm -r .tmp
 fi
 
-chmod +x magento/bin/magento
+chmod +x bin/magento
 
 docker-compose restart
 

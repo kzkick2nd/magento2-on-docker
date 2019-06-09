@@ -3,9 +3,7 @@ cd `dirname $0`
 cd ".."
 
 if type composer > /dev/null 2>&1; then
-    cd magento/
     composer require community-engineering/japan-common
-    cd ..
 else
     docker-compose exec app composer require community-engineering/japan-common
 fi

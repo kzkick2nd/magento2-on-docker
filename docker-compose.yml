@@ -16,7 +16,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./magento:/var/www/html:cached
+      - ./:/var/www/html:cached
     links:
       - db
     depends_on:
