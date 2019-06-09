@@ -1,7 +1,1 @@
 .DS_Store
-
-app/*
-!app/.gitkeep
-
-# ignore compressed magento
-*.tar.bz2
