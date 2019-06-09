@@ -24,7 +24,7 @@ docker-compose exec app bin/magento module:enable CommunityEngineering_Configura
   CommunityEngineering_JapanesePostalCode --clear-static-content
 
 docker-compose exec app bin/magento setup:upgrade
-docker-compose exec app bin/magento setup:di:compile
+docker-compose exec app php -d memory_limit=-1 bin/magento setup:di:compile
 
 docker-compose exec app bin/magento cache:clean
 
