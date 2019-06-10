@@ -3,6 +3,8 @@ cd `dirname $0`
 cd ".."
 
 docker-compose down --rmi local -v
-rm -r ./magento/*
-rm -r ./magento/.* 2>/dev/null
-touch ./magento/.gitkeep
+
+ls -a | grep -vE '.git$|^\.+$|bin|Dockerfile|README.md|docker-compose.yml' | xargs rm -r
+rm bin/magento bin/.htaccess
+
+echo '.DS_Store' > .gitignore
