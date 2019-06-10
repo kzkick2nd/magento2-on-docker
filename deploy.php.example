@@ -1,0 +1,30 @@
+<?php
+namespace Deployer;
+
+require 'recipe/magento2.php';
+
+// Project name
+set('application', 'my_magento2');
+
+// Project repository
+set('repository', '{{ GIT_REPOSITORY_URL }}');
+
+// [Optional] Allocate tty for git clone. Default value is false.
+set('git_tty', true);
+
+// Remote user
+set('http_user', '{{ REMOTE_USER }}');
+set('writable_mode', 'chmod');
+set('default_timeout', 600);
+
+set('allow_anonymous_stats', false);
+
+// Hosts
+host('{{ HOST NAME }}')
+    ->stage('production')
+    ->user('{{ SSH_USER }}')
+    ->port('{{ SSH_PORT }}')
+    ->identityFile('{{ AUTH_PATH }}')
+    ->set('deploy_path', '{{ REMOTE_DEPLOY_PATH }}');
+
+// Tasks (inherit magento2 receipe)
