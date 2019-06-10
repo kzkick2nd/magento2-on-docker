@@ -11,7 +11,7 @@ Magento2 Docker 開発環境。
 - Magento CE 2.3.1
 
 ### 推奨設定
-composer をローカルにインストール + 追加設定を行うことで初期化を高速化できます。
+composer をローカルにインストール + 追加設定を行うことで初期化を高速に行います。
 
 ```
 $ brew install composer
@@ -32,7 +32,7 @@ Magento Marketplace にログインし、auth キーペアを取得します。
 #### 2. Docker 初期化 & Magento インストール
 bin/setup スクリプトを実行します。
 
-repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力する。
+repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力します。
 
 ##### 項目名と対応キー: Username => Public Key, Password => Private Key
 
@@ -43,7 +43,7 @@ $ bin/setup
 
 #### (OPT) 日本語化パッケージの導入
 
-1. Marketplace で Localization 拡張を取得します。=> [Japanese Localization](https://marketplace.magento.com/community-engineering-japan-common.html)
+1. Marketplace で Localization 拡張を購入だけします。これで composer から取得可能になります。=> [Japanese Localization](https://marketplace.magento.com/community-engineering-japan-common.html)
 2. 拡張導入スクリプトを実行します。
 
 ```
@@ -79,8 +79,8 @@ $ docker-compose logs -f
 - [x] composer install 型に変更
 - [ ] スクリプト追加
     - [x] 日本語化公式拡張
-    - [ ] パッケージ更新
-    - [ ] フロントエンド開発
-    - [ ] テスト
-    - [ ] デプロイ
+    - [x] Deployer
+    - [ ] 各種更新スクリプト
+    - [ ] フロントエンド開発環境構築
+    - [ ] テスト実行
 - [ ] Magento2 ログの標準出力転送
