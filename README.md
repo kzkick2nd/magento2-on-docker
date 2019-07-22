@@ -2,13 +2,13 @@
 Magento2 Docker 開発環境。
 
 ### 更新履歴
-- 2019-06-08 構成を変更
+- 2019-07-22 CE 2.3.2 アップグレード
 - [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目 バージョンアップ。
 - [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目 新規作成。
 
 ### 動作環境
 - Docker 18.09.2
-- Magento CE 2.3.1
+- Magento CE 2.3.2
 
 ### 推奨設定
 composer をローカルにインストール + 追加設定を行うことで初期化を高速に行います。
