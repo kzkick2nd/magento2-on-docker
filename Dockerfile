@@ -45,3 +45,4 @@ RUN apt-get update \
 
 WORKDIR /var/www/html/
 COPY ./ ./
+RUN chown -R www-data:www-data .
