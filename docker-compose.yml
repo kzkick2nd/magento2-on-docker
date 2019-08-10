@@ -12,13 +12,11 @@ services:
 
   app:
     build: ./
-    image: magento2-app
+    image: magento2
     ports:
       - "80:80"
     volumes:
       - ./:/var/www/html:cached
-    links:
-      - db
     depends_on:
       - db
 
