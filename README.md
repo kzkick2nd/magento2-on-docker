@@ -1,5 +1,4 @@
-## Magento2 on Docker
-Magento2 Docker 開発環境。
+## Magento2 on Docker 開発環境
 
 ### 更新履歴
 - 2019-07-22 CE 2.3.2 アップグレード
@@ -25,7 +24,7 @@ $ composer global require hirak/prestissimo
 
 ### 初期化（2ステップ）
 #### 1. Magento2 auth key 取得
-Magento Marketplace にログインし、auth キーペアを取得します。
+Magento Marketplace にログインし auth キーペアを取得します。
 
 [Get your authentication keys | Magento 2 Developer Documentation](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
 
@@ -73,14 +72,16 @@ $ docker-compose logs -f
 ```
 
 ## TODO
-- [x] ディレクトリ構成変更
-- [x] bin/setup, bin/drop 追加
-- [x] app => magento フォルダ名変更
-- [x] composer install 型に変更
 - [ ] スクリプト追加
-    - [x] 日本語化公式拡張
-    - [x] Deployer
-    - [ ] 各種更新スクリプト
-    - [ ] フロントエンド開発環境構築
+    - [ ] 各種更新スクリプト化
+    - [ ] フロントエンド開発環境
     - [ ] テスト実行
-- [ ] Magento2 ログの標準出力転送
+- [ ] コンテナ再設計
+    - [ ] 初期化と運用開発フローを内包したイメージへ
+        - 初期化 => 開発 => コミット => 初期化 を可能とすれば OK
+    - [ ] イメージとして配布可能に（Authキーを環境変数経由で取得するなど）
+    - [ ] ログの標準出力転送
+    - [ ] Nginx + PHP-FPM 化
+    - [ ] Redis と Elasticsearch と Varnish を起動可能に
+    - [ ] Alpine イメージへ
+    - [ ] マルチステージで軽量化
