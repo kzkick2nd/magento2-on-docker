@@ -55,3 +55,5 @@ RUN composer create-project --repository=https://repo.magento.com/ magento/proje
 RUN composer require community-engineering/japan-common
 
 RUN chmod +x bin/magento
+
+USER root
