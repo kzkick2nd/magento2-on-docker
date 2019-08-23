@@ -52,4 +52,6 @@ WORKDIR /var/www/html/
 
 RUN composer config -g http-basic.repo.magento.com $MAGENTO_MARKET_USER $MAGENTO_MARKET_PASS
 RUN composer create-project --repository=https://repo.magento.com/ magento/project-community-edition ./
+RUN composer require community-engineering/japan-common
+
 RUN chmod +x bin/magento

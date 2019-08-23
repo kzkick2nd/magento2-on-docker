@@ -4,28 +4,7 @@ cd ".."
 
 docker-compose up -d
 
-mkdir .tmp
-
-if type composer > /dev/null 2>&1; then
-        # Use composer cache if composer command is installed on local.
-        composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .tmp/
-        # Todo: Error Handling for mv files
-        mv -v .tmp/bin/magento .tmp/bin/.htaccess ./bin/ && rm -r .tmp/bin
-        mv -v .tmp/* .tmp/.* ./
-        rm -r .tmp
-else
-        docker-compose exec app composer create-project --repository=https://repo.magento.com/ magento/project-community-edition .tmp/
-        # Todo: Error Handling for mv files
-        docker-compose exec app mv -v .tmp/bin/magento .tmp/bin/.htaccess ./bin/ && rm -r .tmp/bin
-        docker-compose exec app mv -v .tmp/* .tmp/.* ./
-        docker-compose exec app rm -r .tmp
-fi
-
-chmod +x bin/magento
-
-docker-compose restart
-
-docker-compose exec app php -d memory_limit=-1 bin/magento setup:install \
+docker-compose exec --user www-data app php -d memory_limit=-1 bin/magento setup:install \
         --base-url=http://127.0.0.1 \
         --db-host=db \
         --db-name=magento \
@@ -42,4 +21,4 @@ docker-compose exec app php -d memory_limit=-1 bin/magento setup:install \
         --timezone=Asia/Tokyo \
         --use-rewrites=1
 
-open http://127.0.0.1
+open http://127.0.0.1/admin
