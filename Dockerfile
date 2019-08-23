@@ -38,7 +38,6 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-install \
   gd \
   intl \
-  mbstring \
   pdo_mysql \
   xsl \
   zip \
