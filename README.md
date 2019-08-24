@@ -77,10 +77,16 @@ $ docker-compose logs -f
     - [ ] フロントエンド開発環境
     - [ ] テスト実行
 - [ ] コンテナ再設計
+    - [ ] ログの標準出力転送
     - [ ] 初期化と運用開発フローを内包したイメージへ
         - 初期化 => 開発 => コミット => 初期化 を可能とすれば OK
+        - setup:install 実行
+        - env.php を追加
+        - logger の標準出力化
+            - https://stackoverflow.com/questions/47992449/how-to-pipe-magento2-logs-to-stdout
+            - https://devdocs.magento.com/guides/v2.3/config-guide/log/log-db.html
+            - https://github.com/magento/magento2/tree/2.3/lib/internal/Magento/Framework/Logger/Handler
     - [ ] イメージとして配布可能に（Authキーを環境変数経由で取得するなど）
-    - [ ] ログの標準出力転送
     - [ ] Nginx + PHP-FPM 化
     - [ ] Redis と Elasticsearch と Varnish を起動可能に
     - [ ] Alpine イメージへ
