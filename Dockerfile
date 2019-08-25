@@ -47,13 +47,11 @@ RUN docker-php-ext-install \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN chown www-data:www-data /var/www
 
+# TODO: Move magento installation to outside .sh
 USER www-data
 WORKDIR /var/www/html/
-
 RUN composer config -g http-basic.repo.magento.com $MAGENTO_MARKET_USER $MAGENTO_MARKET_PASS
 RUN composer create-project --repository=https://repo.magento.com/ magento/project-community-edition ./
 RUN composer require community-engineering/japan-common
-
 RUN chmod +x bin/magento
-
 USER root
