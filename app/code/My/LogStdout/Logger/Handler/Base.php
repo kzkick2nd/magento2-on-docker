@@ -47,7 +47,7 @@ class Base extends StreamHandler
             $this->fileName = $this->sanitizeFileName($fileName);
         }
         parent::__construct(
-            'php://stdout',
+            $filePath ? $filePath . $this->fileName : BP . DIRECTORY_SEPARATOR . $this->fileName,
             $this->loggerType
         );
 
