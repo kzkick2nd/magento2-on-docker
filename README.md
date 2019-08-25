@@ -83,9 +83,7 @@ $ docker-compose logs -f
         - setup:install 実行
         - env.php を追加
         - logger の標準出力化
-            - https://stackoverflow.com/questions/47992449/how-to-pipe-magento2-logs-to-stdout
-            - https://devdocs.magento.com/guides/v2.3/config-guide/log/log-db.html
-            - https://github.com/magento/magento2/tree/2.3/lib/internal/Magento/Framework/Logger/Handler
+            - Magento/Framework/Logger の上書き
     - [ ] イメージとして配布可能に（Authキーを環境変数経由で取得するなど）
     - [ ] Nginx + PHP-FPM 化
     - [ ] Redis と Elasticsearch と Varnish を起動可能に
