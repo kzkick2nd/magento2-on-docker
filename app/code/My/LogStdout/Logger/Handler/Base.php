@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace My\LogStdout\Logger\Handler;
+namespace Magento\Framework\Logger\Handler;
 
 use Magento\Framework\Filesystem\DriverInterface;
 use Monolog\Formatter\LineFormatter;
