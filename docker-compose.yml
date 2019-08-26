@@ -15,8 +15,8 @@ services:
     build:
       context: ./
       args:
-        MAGENTO_MARKET_USER:
-        MAGENTO_MARKET_PASS:
+        MAGENTO_MARKET_USER: ${MAGENTO_MARKET_USER}
+        MAGENTO_MARKET_PASS: ${MAGENTO_MARKET_PASS}
     volumes:
       - ./app/code:/var/www/html/app/code:cached
     ports:
