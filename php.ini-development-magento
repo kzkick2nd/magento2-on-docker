@@ -1,6 +1,8 @@
 [PHP]
 
-; Changes: max_input_vars, memory_limit, upload_max_filesize
+;;;;;;;;;;;;;;;;;;;
+; CHANGED: max_input_vars, memory_limit, upload_max_filesize
+;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;
 ; About php.ini   ;
