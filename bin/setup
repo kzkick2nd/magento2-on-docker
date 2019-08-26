@@ -4,21 +4,22 @@ cd ".."
 
 docker-compose up -d
 
-docker-compose exec --user www-data app php -d memory_limit=-1 bin/magento setup:install \
-        --base-url=http://127.0.0.1 \
-        --db-host=db \
-        --db-name=magento \
-        --db-user=root \
-        --db-password= \
-        --backend-frontname=admin \
-        --admin-firstname=admin \
-        --admin-lastname=admin \
-        --admin-email=admin@example.com \
-        --admin-user=admin \
-        --admin-password=Passw0rd! \
-        --language=ja_JP \
-        --currency=JPY \
-        --timezone=Asia/Tokyo \
-        --use-rewrites=1
+docker-compose exec --user www-data app php -d memory_limit=-1 \
+    bin/magento setup:install \
+    --base-url=http://127.0.0.1 \
+    --db-host=db \
+    --db-name=magento \
+    --db-user=root \
+    --db-password= \
+    --backend-frontname=admin \
+    --admin-firstname=admin \
+    --admin-lastname=admin \
+    --admin-email=admin@example.com \
+    --admin-user=admin \
+    --admin-password=Passw0rd! \
+    --language=ja_JP \
+    --currency=JPY \
+    --timezone=Asia/Tokyo \
+    --use-rewrites=1
 
 open http://127.0.0.1/admin
