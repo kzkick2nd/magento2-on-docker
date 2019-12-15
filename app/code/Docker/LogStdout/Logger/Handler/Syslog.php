@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Magento\Framework\Logger\Handler;
+namespace Docker\LogStdout\Logger\Handler;
 
 use Monolog\Handler\SyslogHandler;
 use Monolog\Logger;

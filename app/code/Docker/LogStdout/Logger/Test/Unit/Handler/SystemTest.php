@@ -3,11 +3,11 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Framework\Logger\Test\Unit\Handler;
+namespace Docker\LogStdout\Logger\Test\Unit\Handler;
 
 use Magento\Framework\Filesystem\DriverInterface;
-use Magento\Framework\Logger\Handler\Exception;
-use Magento\Framework\Logger\Handler\System;
+use Docker\LogStdout\Logger\Handler\Exception;
+use Docker\LogStdout\Logger\Handler\System;
 use Monolog\Logger;
 use PHPUnit_Framework_MockObject_MockObject as Mock;
 

@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magento\Framework\Logger\Handler;
+namespace Docker\LogStdout\Logger\Handler;
 
 use Magento\Framework\Filesystem\DriverInterface;
 use Monolog\Logger;

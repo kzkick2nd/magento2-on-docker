@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magento\Framework\Logger\Handler;
+namespace Docker\LogStdout\Logger\Handler;
 
 use Magento\Framework\Filesystem\DriverInterface;
 use Monolog\Formatter\LineFormatter;
@@ -47,7 +47,7 @@ class Base extends StreamHandler
             $this->fileName = $this->sanitizeFileName($fileName);
         }
         parent::__construct(
-            $filePath ? $filePath . $this->fileName : BP . DIRECTORY_SEPARATOR . $this->fileName,
+            'php://stdout',
             $this->loggerType
         );
 

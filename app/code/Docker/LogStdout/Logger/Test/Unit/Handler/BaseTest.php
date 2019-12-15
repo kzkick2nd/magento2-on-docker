@@ -3,12 +3,12 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Framework\Logger\Test\Unit\Handler;
+namespace Docker\LogStdout\Logger\Test\Unit\Handler;
 
 class BaseTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \Magento\Framework\Logger\Handler\Base|\PHPUnit_Framework_MockObject_MockObject
+     * @var \Docker\LogStdout\Logger\Handler\Base|\PHPUnit_Framework_MockObject_MockObject
      */
     private $model;
 
@@ -22,7 +22,7 @@ class BaseTest extends \PHPUnit\Framework\TestCase
         $driverMock = $this->getMockBuilder(\Magento\Framework\Filesystem\DriverInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $this->model = new \Magento\Framework\Logger\Handler\Base($driverMock);
+        $this->model = new \Docker\LogStdout\Logger\Handler\Base($driverMock);
 
         $class = new \ReflectionClass($this->model);
         $this->sanitizeMethod = $class->getMethod('sanitizeFileName');

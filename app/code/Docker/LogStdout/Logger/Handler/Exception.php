@@ -4,19 +4,19 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magento\Framework\Logger\Handler;
+namespace Docker\LogStdout\Logger\Handler;
 
 use Monolog\Logger;
 
-class Debug extends Base
+class Exception extends Base
 {
     /**
      * @var string
      */
-    protected $fileName = '/var/log/debug.log';
+    protected $fileName = '/var/log/exception.log';
 
     /**
      * @var int
      */
-    protected $loggerType = Logger::DEBUG;
+    protected $loggerType = Logger::INFO;
 }

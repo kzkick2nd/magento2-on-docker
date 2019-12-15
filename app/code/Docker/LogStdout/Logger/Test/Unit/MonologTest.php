@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Framework\Logger\Test\Unit;
+namespace Docker\LogStdout\Logger\Test\Unit;
 
-use Magento\Framework\Logger\Monolog;
+use Docker\LogStdout\Logger\Monolog;
 use Monolog\Handler\TestHandler;
 
 class MonologTest extends \PHPUnit\Framework\TestCase
