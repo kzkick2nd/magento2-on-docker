@@ -11,12 +11,16 @@ services:
       - db:/var/lib/mysql
 
   app:
-    build: ./
-    image: magento2
-    ports:
-      - "80:80"
+    image: magento:2.3.2
+    build:
+      context: ./
+      args:
+        MAGENTO_MARKET_USER: ${MAGENTO_MARKET_USER}
+        MAGENTO_MARKET_PASS: ${MAGENTO_MARKET_PASS}
     volumes:
-      - ./:/var/www/html:cached
+      - ./app/code:/var/www/magento/app/code:cached
+    ports:
+      - "80:8080"
     depends_on:
       - db
 
