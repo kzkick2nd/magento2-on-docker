@@ -18,9 +18,9 @@ services:
         MAGENTO_MARKET_USER: ${MAGENTO_MARKET_USER}
         MAGENTO_MARKET_PASS: ${MAGENTO_MARKET_PASS}
     volumes:
-      - ./app/code:/var/www/html/app/code:cached
+      - ./app/code:/var/www/magento/app/code:cached
     ports:
-      - "80:80"
+      - "80:8080"
     depends_on:
       - db
 

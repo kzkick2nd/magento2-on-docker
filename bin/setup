@@ -6,7 +6,7 @@ docker-compose up -d
 
 docker-compose exec --user www-data app php -d memory_limit=-1 \
     bin/magento setup:install \
-    --base-url=http://127.0.0.1 \
+    --base-url=http://127.0.0.1:8080 \
     --db-host=db \
     --db-name=magento \
     --db-user=root \
@@ -22,4 +22,4 @@ docker-compose exec --user www-data app php -d memory_limit=-1 \
     --timezone=Asia/Tokyo \
     --use-rewrites=1
 
-open http://127.0.0.1/admin
+open http://127.0.0.1:8080/admin
