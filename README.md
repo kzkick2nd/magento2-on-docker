@@ -24,6 +24,15 @@
 
 これで日本語化対応済みの Magento2 on Docker ローカル環境が立ち上がります。
 
+### docker-compose DB 初期パラメーター
+
+| item | value |
+|:--|:--|
+| Database Host | `db` |
+| Database Name | `magento` |
+| Database Username | `root` |
+| Database Password | なし |
+
 ## ローカル開発のヒント
 この Magento2 on Docker スクリプトは、2019年バージョンから開発時の動作高速化のために Magento2 初期ファイルのローカル・コンテナ間同期をやめました。
 
@@ -32,12 +41,3 @@
 そのため、各種開発が必要な際には、都度 `docker-compose.yaml` の `app > volumes` 設定で、必要なディレクトリをローカルにマウントしてください。参考例として、標準出力ロガーサンプルモジュールを `app/code` 以下にマウントしています。
 
 ※ なお現在、Magento2 コードリーディング専用の Docker イメージも開発中です。
-
-## docker-compose DB 初期パラメーター
-
-| item | value |
-|:--|:--|
-| Database Host | `db` |
-| Database Name | `magento` |
-| Database Username | `root` |
-| Database Password | なし |
