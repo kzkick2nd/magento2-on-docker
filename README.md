@@ -1,58 +1,39 @@
-## Magento2 on Docker 開発環境
+## Magento2 on Docker
+ビルドと開発用途だけでなく、コンテナホスティングに対応した Magento2 用 コンテナイメージビルドスクリプト。
 
-### 更新履歴
-- 2019-07-22 CE 2.3.2 アップグレード
-- [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目 バージョンアップ。
-- [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目 新規作成。
+## 更新履歴
+- [Magento Advent Calendar 2019 - Adventar](https://adventar.org/calendars/4213) 14日目 ホスティング対応、マルチステージ対応
+- [Magento Advent Calendar 2018 - Adventar](https://adventar.org/calendars/3176) 17日目 Magento2 バージョンアップ対応
+- [Magento Advent Calendar 2017 - Adventar](https://adventar.org/calendars/2349) 16日目 新規作成対応
 
-### 動作環境
-- Docker 18.09.2
-- Magento CE 2.3.2
+## 動作環境
+- Docker Desktop 19.03.5
+- Magento Open Source 2.3.3
 
-### 推奨設定
-composer をローカルにインストール + 追加設定を行うことで初期化を高速に行います。
+## 初期化の手順
+### 1. Magento2 Marketplace Auth key を登録
+- Magento Marketplace から Auth キーペアを取得します
+    - [Get your authentication keys | Magento 2 Developer Documentation](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
+- `.env.sample` を `.env` として複製保存し、環境変数に Auth キーペアを登録します
 
-```
-$ brew install composer
-$ composer config -g repos.packagist composer https://packagist.jp
-$ composer global require hirak/prestissimo
-```
+### 2. 初期化 & インストール
+初期化スクリプトを実行します。
 
-##### Packagist.JP, prestissimo 公式情報
-- [Packagist.JP](https://packagist.jp/)
-- [hirak/prestissimo: composer parallel install plugin](https://github.com/hirak/prestissimo)
+        $ chmod +x bin/*
+        $ bin/setup
 
-### 初期化（2ステップ）
-#### 1. Magento2 auth key 取得
-Magento Marketplace にログインし auth キーペアを取得します。
+これで日本語化対応済みの Magento2 on Docker ローカル環境が立ち上がります。
 
-[Get your authentication keys | Magento 2 Developer Documentation](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html)
+## ローカル開発のヒント
+この Magento2 on Docker スクリプトは、2019年バージョンから開発時の動作高速化のために、Magento2 初期ファイルのローカル <=> コンテナ間同期をやめました。
 
-#### 2. Docker 初期化 & Magento インストール
-bin/setup スクリプトを実行します。
+ローカル同期をやめた理由は、高速化以外にもあります。Magento2 開発では、提供される初期ファイルを編集することはバッドプラクティスですので、ソースコードリーディング以外でローカルに同期して参照する必要が無かったからです。
 
-repo.magento.com へのログイン情報を求められたら(1)で取得したキーペアを入力します。
+そのため、各種開発が必要な際には、都度 `docker-compose.yaml` の `app > volumes` 設定で、必要なディレクトリをローカルにマウントしてください。例として、標準出力ロガーサンプルモジュールを `app/code` 以下にマウントしています。
 
-##### 項目名と対応キー: Username => Public Key, Password => Private Key
+※ なお現在、Magento2 コードリーディング専用の Docker イメージも開発中です。
 
-```
-$ chmod +x bin/*
-$ bin/setup
-```
-
-#### (OPT) 日本語化パッケージの導入
-
-1. Marketplace で Localization 拡張を購入だけします。これで composer から取得可能になります。=> [Japanese Localization](https://marketplace.magento.com/community-engineering-japan-common.html)
-2. 拡張導入スクリプトを実行します。
-
-```
-$ bin/localization_ja_JP
-```
-
-#### (OPT) 管理画面表示言語の変更
-管理画面 Admin Setting の Interface Locale を日本語に変更します。
-
-### 備考: DB 設定情報
+## docker-compose DB 初期パラメーター
 
 | item | value |
 |:--|:--|
@@ -60,32 +41,3 @@ $ bin/localization_ja_JP
 | Database Name | `magento` |
 | Database Username | `root` |
 | Database Password | なし |
-
-### 備考: 各種コマンド
-
-```
-# bin/magento コマンド
-$ docker-compose exec app bin/magento
-
-# コンテナ log 出力
-$ docker-compose logs -f
-```
-
-## TODO
-- [ ] スクリプト追加
-    - [ ] 各種更新スクリプト化
-    - [ ] フロントエンド開発環境
-    - [ ] テスト実行
-- [ ] コンテナ再設計
-    - [ ] ログの標準出力転送
-    - [ ] 初期化と運用開発フローを内包したイメージへ
-        - 初期化 => 開発 => コミット => 初期化 を可能とすれば OK
-        - setup:install 実行
-        - env.php を追加
-        - logger の標準出力化
-            - Magento/Framework/Logger の上書き
-    - [ ] イメージとして配布可能に（Authキーを環境変数経由で取得するなど）
-    - [ ] Nginx + PHP-FPM 化
-    - [ ] Redis と Elasticsearch と Varnish を起動可能に
-    - [ ] Alpine イメージへ
-    - [ ] マルチステージで軽量化
